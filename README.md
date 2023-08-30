@@ -1,3 +1,7 @@
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+</p>
+
 <div align="center">
   <h1>Lobisomem-Labs</h1>
   <h2>Sistema de Gerenciamento de Jogadores, Times e Campeonatos</h2>
