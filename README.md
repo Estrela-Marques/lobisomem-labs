@@ -52,6 +52,10 @@ O projeto será avaliado com base na implementação correta das operações CRU
 
 Este é um projeto fictício criado para simular um cenário de desenvolvimento em grupo. As informações e requisitos podem ser adaptados com base nas necessidades e conhecimentos reais da equipe.
 
----
+## 👥 Criado por:
 
-**Criado por [Estela Marques, Fernando Gonzaga, Kairo Matheus, Giliardy Alves, Rian Manoel]**
+- [Estela Marques](https://github.com/Estrela-Marques)
+- [Fernando Gonzaga](https://github.com/seu-usuario-aqui)
+- [Kairo Matheus](https://github.com/kairosb)
+- [Giliardy Alves](https://github.com/seu-usuario-aqui)
+- [Rian Manoel](https://github.com/rianmp12)
