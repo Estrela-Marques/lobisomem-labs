@@ -55,7 +55,5 @@ Este é um projeto fictício criado para simular um cenário de desenvolvimento 
 ## 👥 Criado por:
 
 - [Estela Marques](https://github.com/Estrela-Marques)
-- [Fernando Gonzaga](https://github.com/seu-usuario-aqui)
 - [Kairo Matheus](https://github.com/kairosb)
-- [Giliardy Alves](https://github.com/seu-usuario-aqui)
 - [Rian Manoel](https://github.com/rianmp12)
