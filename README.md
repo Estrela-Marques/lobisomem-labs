@@ -33,7 +33,9 @@ Este projeto é parte de um desafio de desenvolvimento em grupo que visa criar u
 ## 📂 Estrutura do Projeto
 
 - `/src`: Código fonte da aplicação.
+  - `/controller`: Controladores da API para as entidades.
   - `/model`: Modelos das entidades.
+  - `/repository`: Repositórios para acessar o banco de dados.
   - `/routes`: Definição das rotas da API.
 
 ## 🛠️ Instruções de Uso
