@@ -10,11 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Player {
   id        String   @id @default(uuid())
   name      String
   age       Int
-  team      Team?    @relation(fields: [teamId], references: [id])
+  team      Team?    @relation(fields: [teamId], references: [id], onDelete: Cascade)
   teamId    String?
   createdAt DateTime @default(now())
   championships Championship[]  
@@ -42,11 +43,4 @@ model Championship {
 
   @@map("championships")
 }
-
-
-
-
-
-
-
 

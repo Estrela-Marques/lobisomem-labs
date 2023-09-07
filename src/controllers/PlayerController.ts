@@ -80,7 +80,7 @@ export class PlayerController {
     const { id } = request.params;
 
     try {
-      await prismaClient.player.delete({
+      const playerDelete = await prismaClient.player.delete({
         where: {
           id,
         },
