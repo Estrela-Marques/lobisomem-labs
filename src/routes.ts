@@ -1,39 +1,50 @@
 import { Router } from 'express';
-import { PlayerController } from './controllers/PlayerController'
-import { TeamsController } from './controllers/TeamsController';
-import { ChampionshipController } from './controllers/ChampionshipController';
+import { createPlayer, deletePlayerById, findPlayer, getPlayerById, updatePlayerById } from './controllers/PlayerController';
+import { createTeam, deleteTeamById, findTeams, getTeamById, updateTeamById } from './controllers/TeamsController';
+import { createChampionship, deleteChampionshipById, findChampionship, updateChampionshipById } from './controllers/ChampionshipController';
 
 const router = Router();
-const playerController = new PlayerController();
-const teamsController = new TeamsController();
-const championshipController = new ChampionshipController(); 
 
+// Rota para criar um novo jogador
+router.post('/players', createPlayer);
 
-// Rota para criar um novo jogador (POST)
-router.post('/players', playerController.create);
+// Rota para listar todos os jogadores
+router.get('/players', findPlayer);
 
-// Rota para listar todos os jogadores (GET)
-router.get('/players', playerController.list);
+// Rota para buscar um jogador pelo ID
+router.get('/players/:id', getPlayerById);
 
-// Rota para buscar um jogador pelo ID (GET)
-router.get('/players/:id', playerController.getPlayerById);
+// Rota para atualizar um jogador pelo ID
+router.put('/players/:id', updatePlayerById);
 
-// Rota para atualizar um jogador pelo ID (PUT)
-router.put('/players/:id', playerController.updatePlayerById);
+// Rota para excluir um jogador pelo ID
+router.delete('/players/:id', deletePlayerById);
 
-// Rota para excluir um jogador pelo ID (DELETE)
-router.delete('/players/:id', playerController.deletePlayerById);
+// Rota para criar um novo time
+router.post('/teams', createTeam); // Atualize o nome do controlador aqui
 
-// Rota para criar um novo time (POST)
-router.post('/teams', teamsController.create); // Atualize o nome do controlador aqui
+// Rota para para atualização de time
+router.put('/teams/:id', updateTeamById);
 
-// Rotas para campeonatos
-router.post('/championships', championshipController.create);
-router.get('/championships', championshipController.list);
+//Rota para listar todos os times
+router.get('/teams', findTeams);
 
+// Rota para buscar um time pelo ID
+router.get('/teams/:id', getTeamById);
 
-// Rotas para para atualização e exclusão de campeonatos
-router.put('/championships/:id', championshipController.updateChampionshipById);
-router.delete('/championships/:id', championshipController.deleteChampionshipById);
+// Rota para deletar um time por ID
+router.delete('/teams/:id', deleteTeamById)
+
+// Rotas para cria um novo campeonato
+router.post('/championships', createChampionship);
+
+//Rota para listar todos os campeonatos
+router.get('/championships', findChampionship);
+
+// Rota para para atualização de campeonatos
+router.put('/championships/:id', updateChampionshipById);
+
+// Rota para deletar campeonato pelo ID
+router.delete('/championships/:id', deleteChampionshipById);
 
 export { router };

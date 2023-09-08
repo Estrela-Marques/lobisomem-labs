@@ -18,7 +18,7 @@ model Player {
   team      Team?    @relation(fields: [teamId], references: [id], onDelete: Cascade)
   teamId    String?
   createdAt DateTime @default(now())
-  championships Championship[]  
+    
 
   @@map("players")
 }
@@ -29,6 +29,7 @@ model Team {
   foundation DateTime
   createdAt  DateTime   @default(now())
   players    Player[]   
+  teamchampionships TeamChampionship[]
 
   @@map("teams")
 }
@@ -39,8 +40,17 @@ model Championship {
   startDate DateTime
   endDate   DateTime
   createdAt DateTime @default(now())
-  players   Player[]
+  team   TeamChampionship[]
 
   @@map("championships")
 }
 
+model TeamChampionship {
+  id        String  @id @default(uuid())
+  id_team   String
+  team      Team @relation(fields: [id_team], references: [id])
+  id_championship String
+  champioship Championship @relation(fields: [id_championship], references: [id])
+
+  @@map("team_championship")
+}
