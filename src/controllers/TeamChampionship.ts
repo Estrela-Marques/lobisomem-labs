@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { prismaClient } from "../database/prismaClient";
 
 
-export const addTeamChampion =async (request:Request, response:Response) => {
+export const createTeamChampion =async (request:Request, response:Response) => {
     try {
         const {id_team, id_championship} = request.body
         const teamChampion = await prismaClient.teamChampionship.create({
@@ -13,6 +13,32 @@ export const addTeamChampion =async (request:Request, response:Response) => {
         })
         return response.status(201).json(teamChampion)
     } catch (error) {
-        return response.status(500).json({ error: 'An error occurred while updating the championship.' });   
+        return response.status(500).json({ error: 'An error occurred while create the championship.' });   
+    }
+}
+
+
+export const createChampionshipWithTeam =async (request:Request, response:Response) => {
+    try {
+        const { name, startDate, endDate, id_team } = request.body
+        const teamChampion = await prismaClient.teamChampionship.create({
+            data:{
+                championship: {
+                    create:{
+                        name,
+                        startDate,
+                        endDate,
+                    }
+                },
+                team: {
+                    connect:{
+                        id: id_team,
+                    }
+                }
+            }
+        })
+        return response.status(201).json(teamChampion)
+    } catch (error) {
+        return response.status(500).json({ error: 'An error occurred while creating the championship.' });   
     }
 }
