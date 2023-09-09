@@ -19,7 +19,6 @@ model Player {
   teamId    String?
   createdAt DateTime @default(now())
     
-
   @@map("players")
 }
 

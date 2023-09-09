@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { createPlayer, deletePlayerById, findPlayer, getPlayerById, updatePlayerById } from './controllers/PlayerController';
 import { createTeam, deleteTeamById, findTeams, getTeamById, updateTeamById } from './controllers/TeamsController';
 import { createChampionship, deleteChampionshipById, findChampionship, updateChampionshipById } from './controllers/ChampionshipController';
+import { createChampionshipWithTeam, createTeamChampion, findTeamChampionshp } from './controllers/TeamChampionshipController';
 
 const router = Router();
 
@@ -35,7 +36,7 @@ router.get('/teams/:id', getTeamById);
 // Rota para deletar um time por ID
 router.delete('/teams/:id', deleteTeamById)
 
-// Rotas para cria um novo campeonato
+// Rotas para criar um novo campeonato
 router.post('/championships', createChampionship);
 
 //Rota para listar todos os campeonatos
@@ -46,5 +47,14 @@ router.put('/championships/:id', updateChampionshipById);
 
 // Rota para deletar campeonato pelo ID
 router.delete('/championships/:id', deleteChampionshipById);
+
+// Rota para adicionar um time ao campeonato
+router.post('/teamchampionsship', createTeamChampion)
+
+// Rota para criar um campeonato já associando um time a ele
+router.post('/teamchampionsship', createChampionshipWithTeam)
+
+// Rota para listar times e campeonatos relacionados
+router.get('/teamchampionship', findTeamChampionshp)
 
 export { router };

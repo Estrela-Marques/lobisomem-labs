@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, request } from "express";
 import { prismaClient } from "../database/prismaClient";
 
 
@@ -40,5 +40,14 @@ export const createChampionshipWithTeam =async (request:Request, response:Respon
         return response.status(201).json(teamChampion)
     } catch (error) {
         return response.status(500).json({ error: 'An error occurred while creating the championship.' });   
+    }
+}
+
+export const findTeamChampionshp = async(request:Request, response:Response) => {
+    try {
+        const team_championship = await prismaClient.teamChampionship.findMany()
+        return response.status(200).json(team_championship)
+    } catch (error) {
+        return response.status(500).json({ error: 'An error occurred while fetching teamchampionship.' });
     }
 }
